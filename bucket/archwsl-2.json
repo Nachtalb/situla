@@ -8,7 +8,7 @@
     "url": "https://github.com/yuk7/ArchWSL/releases/download/24.4.28.0/Arch.zip",
     "hash": "64adcaaa2a63063f988da4cf915a61966c7af04cfca33efa5ee1f156e5499fcf",
     "pre_install": [
-        "Copy-Item \"$dir\\Arch.exe\" \"$dir\\Arch2.exe\"",
+        "Move-Item \"$dir\\Arch.exe\" \"$dir\\Arch2.exe\"",
     ],
     "post_install": [
         "$installable = $true",
