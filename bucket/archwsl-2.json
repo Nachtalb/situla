@@ -7,6 +7,9 @@
     "notes": "Even when you are logging in as 'root', some operations (like service command) require Windows administrator privileges",
     "url": "https://github.com/yuk7/ArchWSL/releases/download/24.4.28.0/Arch.zip",
     "hash": "64adcaaa2a63063f988da4cf915a61966c7af04cfca33efa5ee1f156e5499fcf",
+    "pre_install": [
+        "Copy-Item \"$dir\\Arch.exe\" \"$dir\\Arch2.exe\"",
+    ],
     "post_install": [
         "$installable = $true",
         "if ($null -eq (Get-Command 'wslconfig' -ErrorAction SilentlyContinue)) {",
@@ -15,7 +18,6 @@
         "    warn 'from an elevated PowerShell. Restart your computer when prompted and reinstall ArchWSL 2.'",
         "    $installable = $false",
         "}",
-        "Copy-Item \"$dir\\Arch.exe\" \"$dir\\Arch2.exe\"",
         "& \"$dir\\Arch2.exe\" 'isregd'",
         "if ($?) {",
         "    warn 'ArchWsl is already registered'",
